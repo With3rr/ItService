@@ -1,0 +1,48 @@
+﻿@using ITService.Domain.Query.Dto.Pagination.PageResults
+@using ITService.Domain.Query.Dto
+@model ProductPageResult<ProductDto>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+
+<div  style="border:1px solid black; margin-top:10px;">
+    <h1 style="text-align:center;padding:10px; color:gray;  text-transform:uppercase">Products</h1>
+</div>
+<div class="row pb-3 backgroundWhite">
+    @foreach (var product in Model.Items)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12  p-1" style="border:1px solid #008cba; border-radius: 0px;">
+                    <div class="card">
+
+                        <img src="@product.Image" style="width:100%" class="card-img-top  rounded" />
+                        <div style="margin-top:10px">
+
+                        </div>
+                        <div class="pl-1" style="text-align:center; ">
+                            <p class="card-title h5"><b style="color:#2c3e50;font-size:1.8rem;">@product.Name</b></p>
+
+                        </div>
+                        <div style="margin-top:10px">
+
+                        </div>
+                        <div style="font-size:1.2rem" class="text-center">
+                            <p><b class="text-center">@product.Price $</b></p>
+                        </div>
+                    </div>
+                    <div style="margin-top:10px">
+
+                    </div>
+                    <div>
+                        <a asp-action="Details" class="btn btn-outline-primary form-control" asp-route-productId="@product.Id">Details</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
